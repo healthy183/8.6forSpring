@@ -1,0 +1,219 @@
+@charset "utf-8";
+/* CSS Document */
+
+select {
+    -moz-border-radius: 4px;
+    -moz-box-shadow: 1px 1px 5px #cfcfcf inset;
+    border: 1px solid #b4d0e3;
+    vertical-align: middle;
+    background-color: White;
+	margin-left: 8px;
+	margin-bottom:10px;
+}
+
+.styled-button-5 {
+	background-color: #ed8223;
+	color: white;
+	font-family: 'Helvetica Neue', sans-serif;
+	font-size: 18px;
+	line-height: 30px;
+	border-radius: 20px;
+	border: 0px;
+	text-shadow: #C17C3A 0px -1px 0px;
+	width: 120px;
+	height: 32px;
+}
+
+input[type="text"]
+{
+	-moz-border-radius: 4px;
+    -moz-box-shadow: 1px 1px 5px #cfcfcf inset;
+	font: 新細明體, Arial, Helvetica, sans-serif;
+	display:inline;
+	width: 150px;
+	margin-bottom:10px;
+	border: 2px solid #b4d0e3;
+	background-color:White;
+margin-left: 8px;
+}
+
+input[type="text1"]
+{
+	-moz-border-radius: 4px;
+    -moz-box-shadow: 1px 1px 5px #cfcfcf inset;
+	font: 新細明體, Arial, Helvetica, sans-serif;
+	display:inline;
+	width: 100px;
+	margin-bottom:10px;
+	border: 2px solid #b4d0e3;
+	background-color:White;
+margin-left: 8px;
+}
+
+input[type="text2"]
+{
+	-moz-border-radius: 4px;
+    -moz-box-shadow: 1px 1px 5px #cfcfcf inset;
+	font: 新細明體, Arial, Helvetica, sans-serif;
+	display:inline;
+	width: 330px;
+	margin-bottom:10px;
+	border: 2px solid #b4d0e3;
+	background-color:White;
+margin-left: 8px;
+}
+
+/*
+input[type="text1"]
+{
+	font: 新細明體, Arial, Helvetica, sans-serif;
+	display:inline;
+	width: 100px;
+	margin-bottom:10px;
+	border-style:solid;
+	border-width:thin;
+border-color: #b4d0e3;
+background-color:White;
+margin-left: 8px;
+}
+*/
+
+
+/* form style
+---------------------------------------------*/
+fieldset
+{
+border: 1px solid #bac0c8;
+width: 99%;
+}
+
+legend
+{
+color: #16448b;
+font-weight: bold;
+
+font-size: 110%;
+border: 0px;
+padding: 2px 10px;
+margin-top: 15px;
+margin-left: 15px;
+margin-bottom: 15px;
+} 
+
+legend .purple
+{
+color: #16448b;
+font-weight: bold;
+
+font-size: 110%;
+border: 0px;
+padding: 2px 10px;
+
+} 
+
+label
+{
+width: auto;
+float: left;
+font-weight: bold;
+text-align: right;
+margin-right: 0.5em;
+Margin-left: 15px;
+display: block;
+}
+
+
+
+
+
+.sectiontitle {
+	font: Helvetica, Arial,  sans-serif;
+	font-weight: bold;
+	color: #16448b;
+	border-bottom: 2px solid #bac0c8;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	
+}
+
+.inputForm01 table {
+	width: 100%;
+	\_width: 730px; /* for WinIE5 */
+	border-bottom: 1px solid #CCC;
+}
+.inputForm01 th,
+.inputForm01 td {
+	padding: 5px 0;
+	border-top: 1px solid #CCC;
+}
+.inputForm01 th {
+	width: 180px;
+	vertical-align: middle;
+}
+.inputForm01 .input,
+.inputForm01 .select,
+.inputForm01 textarea {
+	width: 98%;
+	padding: 2px 1px;
+	border: 1px solid #b4d0e3;;
+	
+	font-family: inherit;
+	/**/
+}
+
+.inputForm01 select name {
+	border: 1px solid #b4d0e3;;
+	
+	font-family: inherit;
+	/**/
+}
+
+.inputForm01 textarea {
+	height: 200px;
+}
+
+
+/* 書籍購入先の選択
+---------------------------------------------*/
+
+
+.inputForm01 .submit {
+	margin: 10px 0 0 0;
+	text-align: center;
+}
+.inputForm01 .submit input {
+	padding: 2px 10px;
+}
+
+
+
+.btn1_old {
+  color: #fff;
+  background: #ed8223;
+  font-weight: bold;
+  border: 1px solid #cc660b;
+  font-size: 13px;
+	line-height: 22px;
+	border-radius: 11px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+.btn1 {
+color: #fff;
+  background: #c55b05;
+  font-weight: bold;
+  border: 1px solid #cc660b;
+   cursor: pointer;
+  cursor: hand;
+  font-size: 13px;
+	line-height: 20px;
+	border-radius: 14px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+.btn1:hover {
+  color: #494949;
+  background: #fcc696;
+}
+

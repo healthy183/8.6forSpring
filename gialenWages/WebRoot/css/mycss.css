@@ -1,0 +1,69 @@
+	a{
+			font-size: 14px;
+			color:blue;
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+	
+	/*	#left {
+				display:inline;
+				float: left;
+				height: 45px;
+				width: 100%;
+				background-image: url(image/top_ground.gif);
+			}*/
+			
+		#main {}
+			
+			
+		
+		#main_right{
+		background: url(image/link.jpg);
+		background-repeat:repeat-y;
+		background-position:left;
+			padding-left: 5px;
+			padding-right: 0px;
+			width: 100%;
+		}
+		
+		#main_right table{
+			text-align:center;
+			border:1px solid #663300; /* ±í¸ñ±ß¿ò */
+			border-collapse:collapse; /* ±ß¿òÖØµþ */
+			font-size: 14px;
+			padding: 0px;
+			margin-left: 20px;margin-top: 0px;margin-right: 0px;margin-bottom: 0px;
+			width:96%;
+			background-color:#FFFFCC;
+		}
+		
+		#main_right table tr{
+			border:1px solid #663300;
+			border-collapse:collapse;
+			font-size: 14px;
+		}
+		#main_right	table th{
+			border:1px solid #663300;
+			border-collapse:collapse;
+			font-size: 14px;
+			
+		}
+		
+		#main_right table td{
+			border:1px solid #663300;
+			border-collapse:collapse;
+			font-size: 14px;
+			padding-top:0px; padding-bottom:0px;
+			padding-left:auto; padding-right:auto;
+			
+		}
+		
+		#main_right	.num{
+		border:1px solid #663300;
+			border-collapse:collapse;
+			text-align:right;
+			font-size: 14px;
+			padding-top:0px; padding-bottom:0px;
+			padding-left:auto; padding-right:auto;

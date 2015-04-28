@@ -1,0 +1,75 @@
+div {
+	padding:0px;
+	margin:0px;
+	
+}
+
+body {
+font-size: 12px;
+ scrollbar-base-color:#4D290F;
+ scrollbar-arrow-color:#FFFFFF;
+ scrollbar-shadow-color:#c1ea8b;
+ padding:0px;
+ margin:auto;
+ text-align:center;
+ background-color:#9ad075;
+}
+
+dl.bitem {
+	font-size:12px;
+	background-color: #DAEA65;
+	width:160px;
+	margin:0px 0px 0px 4px;
+}
+
+dl.bitem dt {
+  background:url(../image/menubg.jpg);
+  height:26px;
+  line-height:26px;
+  text-align:center;
+  cursor:pointer;
+}
+
+dl.bitem dd {
+  padding:0px 0px 0px 0px;
+  background-color:#fff;
+}
+
+.fllct
+{
+	float:left;
+	
+	width:90px;
+}
+
+.flrct
+{
+	padding-top:3px;
+	float:left;
+}
+
+div.items
+{
+	line-height:22px;
+	background:url(../image/arr4.gif) no-repeat 10px 9px;
+}
+
+span.items
+{
+	padding:10px 0px 10px 22px;
+	background:url(../image/arr4.gif) no-repeat 10px 12px;
+}
+
+ul {
+  padding-top:3px;
+}
+
+li {
+  height:22px;
+}
+
+.sitemu li {
+	padding:0px 0px 0px 22px;
+	line-height:24px;
+	background:url(../images/arr4.gif) no-repeat 10px 9px;
+}

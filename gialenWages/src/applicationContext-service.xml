@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	                    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	                    
+	                    http://www.springframework.org/schema/tx 
+	                    http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<bean name="mainService" class="com.gialen.main.service.impl.MainServiceImpl" scope="prototype">
+		<property name="psnaccountDAO" ref="PsnaccountDAO"></property>
+		<property name="correspondingDAO" ref="CorrespondingDAO"></property>
+	</bean>
+
+	<bean name="operatingMonthService" class="com.gialen.OperatingMonth.serviceImpl.OperatingMonthServiceImpl" scope="prototype">
+		<property name="operatingMonthDAO" ref="OperatingMonthDAO"></property>	
+	</bean>
+
+	<bean name="thisMonthWagesService" class="com.gialen.thisMonthWages.service.impl.ThisMonthWagesServiceImpl" scope="prototype">
+		<property name="operatingMonthPlanMoneyDAO" ref="OperatingMonthPlanMoneyDAO"></property>
+		<property name="complatePercentDAO" ref="ComplatePercentDAO"></property>
+		<property name="grundbonusDAO" ref="GrundbonusDAO"></property>	
+	</bean>
+	
+	<bean name="totalCommissionService" 
+		class="com.gialen.thisMonthTotalCommission.service.impl.TotalCommissionServiceImpl"
+			scope="prototype"></bean>
+	
+	<bean name="synchronizationStoresSerivce" 
+	class="com.gialen.synchronizationStores.service.impl.SynchronizationStoresSerivceImpl" scope="prototype">
+		<property name="correspondingDAO" ref="CorrespondingDAO"></property>
+		<property name="orgstdStructDao" ref="OrgstdStructDAO"></property>	
+	</bean>
+	
+	<bean name="dwrSynchronizationStoresService"
+	class="com.gialen.synchronizationStores.service.impl.DwrSynchronizationStoresServiceImpl" scope="prototype">
+		<property name="correspondingDAO" ref="CorrespondingDAO"></property>
+		<property name="branchDAO" ref="BranchDAO"></property>
+		<property name="orgstdStructDao" ref="OrgstdStructDAO"></property>
+	</bean>
+	
+	<bean name="addBrandService"
+		 class="com.gialen.arrangeBrand.service.impl.AddBrandServiceImpl" scope="prototype">
+			<property name="planBrandDAO" ref="PlanBrandDAO"></property>
+			<property name="productClassDAO" ref="ProductClassDAO"></property>
+			<property name="productProjectDAO" ref="ProductProjectDAO"></property>
+			<property name="proProjectRelationTableDAO" ref="ProProjectRelationTableDAO"></property>
+	<property name="planMoneyDAO" ref="PlanMoneyDAO"></property>
+		<property name="branchDAO" ref="BranchDAO"></property>
+		<property name="operatingMonthDAO" ref="OperatingMonthDAO"></property>
+	</bean>
+	
+	<bean name="dwrAddBrandService" class="com.gialen.arrangeBrand.service.impl.DwrAddBrandServiceImpl">
+			<property name="productDAO" ref="ProductDAO"></property>
+			<property name="productBrandDAO" ref="ProductBrandDAO"></property>
+			<property name="productClassDAO" ref="ProductClassDAO"></property>
+			<property name="productProjectDAO" ref="ProductProjectDAO"></property>
+			<property name="proProjectRelationTableDAO" ref="ProProjectRelationTableDAO"></property>
+			<property name="operatingMonthDAO" ref="OperatingMonthDAO"></property>
+			<!-- 2012-8-20 -->
+			<property name="branchDAO" ref="BranchDAO"></property>
+			<property name="planMoneyDAO" ref="PlanMoneyDAO"></property>
+	</bean>
+	
+	<bean name="accountingAreaService" class="com.gialen.accountingArea.service.impl.AccountingAreaServiceImpl" scope="prototype">
+		<property name="storeCountDAO" ref="StoreCountDAO"></property>
+		<property name="branchDAO" ref="BranchDAO"></property>
+		<property name="saleDailyYymmDAO" ref="SaleDailyYymmDAO"></property>
+		<property name="planMoneyDao" ref="PlanMoneyDAO"></property>
+		<property name="grundbonusDao" ref="GrundbonusDAO"></property>
+		<property name="correspondingDAO" ref="CorrespondingDAO"></property>
+		<property name="orgstdStructDao" ref="OrgstdStructDAO"></property>
+		<property name="operatingMonthDAO" ref="OperatingMonthDAO"></property>
+		<property name="employeeDAO" ref="EmployeeDAO"></property>
+	</bean>
+			
+	<bean name="countProductProjectService"
+	 class="com.gialen.countProductProject.service.impl.CountProductProjectServiceImpl" scope="prototype">
+		<property name="saleDailyYymmDAO" ref="SaleDailyYymmDAO"></property>
+		<property name="productDAO" ref="ProductDAO"></property>
+	 	<property name="branchDAO" ref="BranchDAO"></property>
+	 	<property name="correspondingDAO" ref="CorrespondingDAO"></property>
+		<property name="psnaccountDAO" ref="PsnaccountDAO"></property>
+		<property name="proProjectRelationTableDAO" ref="ProProjectRelationTableDAO"></property>
+		<property name="psnaccountMonthProjectDetailsLinkDAO" ref="PsnaccountMonthProjectDetailsLinkDAO"></property>	
+		<property name="orgstdStructDAO" ref="OrgstdStructDAO"></property>
+		<property name="saleDailyProductPeopleSumDAO" ref="SaleDailyProductPeopleSumDAO"></property>
+		<property name="saleDailyProductDAO" ref="SaleDailyProductDAO"></property>
+		<property name="saleDailyProductPeopleDAO" ref="SaleDailyProductPeopleDAO"></property>
+		<property name="productProjectDAO" ref="ProductProjectDAO"></property>
+</bean>		
+			<bean name="planBrandRelationService"
+		class="com.gialen.PlanBrandRelation.service.impl.PlanBrandRelationServiceImpl"
+		scope="prototype">
+		<property name="planBrandRelationTableDAO" ref="PlanBrandRelationTableDAO"></property>
+		<property name="productProjectDAO" ref="ProductProjectDAO"></property>
+		<property name="proProjectRelationTableDAO" ref="ProProjectRelationTableDAO"></property>
+		<property name="planBrandDAO" ref="PlanBrandDAO"></property>
+		<property name="planMoneyDAO" ref="PlanMoneyDAO"></property>
+	</bean>	
+	
+	<bean name="showAreaWagesTableService" class="com.gialen.showTable.service.impl.ShowAreaWagesTableServiceImpl" scope="prototype">
+		<property name="storeCountDAO" ref="StoreCountDAO"></property>
+		<property name="saleDailyProductPeopleSumDAO" ref="SaleDailyProductPeopleSumDAO"></property>
+		<property name="lastCountTableDAO" ref="LastCountTableDAO"></property>
+	</bean>
+	
+	<bean name="userShowTableService" class="com.gialen.userShowTable.service.impl.UserShowTableServiceImpl" scope="prototype">
+	</bean>
+	
+	
+	</beans>

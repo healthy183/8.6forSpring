@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+#menusearch1 {
+	float: left;
+	width: 180px;
+	height: 30px;
+	display: block;
+	background-color:#dff6c7;
+	font-weight: bold;
+	color: #2f6900;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+}
+#menutitle1 {
+	float: inherit;
+	width: 170px;
+	height: 30px;
+	display: block;
+	background-image:url(../../images/menutitlebg1b.png);
+	font-weight: bold;
+	padding: 2px 5px 2px;
+	color: #2f6900;
+}
+#menutitle1b {
+	float: inherit;
+	width: 170px;
+	height: 30px;
+	display: block;
+	background-image:url(../../images/menutitlebg1b.png);
+	font-weight: bold;
+	padding: 2px 5px 2px;
+	color: #2f6900;
+}
+
+#menusearch2 {
+	float: left;
+	width: 180px;
+	height: 30px;
+	display: block;
+	background-color:#ddc8ff;
+	font-weight: bold;
+	padding: 2px 5px 2px;
+	color: #2f6900;
+}
+/* local navigation
+---------------------------------------------*/
+#localNavigation ul {
+	background: #FFFFFF;
+	line-height: 1.2;
+}
+#localNavigation ul li{
+	padding-bottom: 2px;
+	background:url(../../images/IN_li_bg.gif) left bottom repeat-x;
+
+}
+#localNavigation #name{
+	padding-top: 10px;
+	padding-bottom: 5px;
+	background: #FFFFFF;
+	line-height: 1.2;
+	color: #0b2f67;
+	font-weight: bold;
+
+}
+
+#localNavigation ul li a {
+	display: block;
+	width: 135px; /* for WinIE6 */
+	padding: 8px 10px 8px 10px;
+	background: url(../../images/arrow_big.gif) 3px 15px no-repeat;
+	text-decoration: none;
+}
+
+#localNavigation ul li a:hover,
+#localNavigation ul li a:focus {
+	background: #E6E6E6 url(../../images/arrow_big.gif) 4px 15px no-repeat;
+}
+
+#localNavigation ul li.current a {
+	background-image: none;
+	background-color: #E5E5E5;
+	font-weight: bold;
+}
+
+#localNavigation ul li.current ul li a {
+	background: url(../../images/arrow_small.gif) 6px 11px no-repeat;
+	font-weight: normal;
+}
+
+
+
+#localNavigation ul li ul {
+	margin-left: 12px;
+	font-size: 90%;
+}
+#localNavigation ul li ul li {
+	padding-bottom: 0;
+	background: none;
+	border-top: 1px solid #E5E5E5;
+}
+#localNavigation ul li ul li a {
+	width: 120px; /* for WinIE6 */
+	padding: 6px 10px 6px 14px;
+	background: url(../../images/arrow_small.gif) 6px 11px no-repeat;
+}
+#localNavigation ul li ul li a:hover,
+#localNavigation ul li ul li a:focus {
+	background: #E6E6E6 url(../../images/arrow_small.gif) 7px 11px no-repeat;
+}	

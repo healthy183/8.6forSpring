@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	                    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	                    
+	                    http://www.springframework.org/schema/tx 
+	                    http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.microsoft.sqlserver.jdbc.SQLServerDriver">
+		</property>
+		<property name="url"
+			value="jdbc:sqlserver://127.0.0.1:1433;databaseName=gialenWages">
+		</property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="123"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource"/>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+				</prop>
+				
+				<prop key="hibernate.cache.provider_class">
+					org.hibernate.cache.EhCacheProvider
+				</prop>
+				<prop key="hibernate.cache.use_second_level_cache">false</prop>
+				
+				<prop key="hibernate.jdbc.batch_size">50</prop>
+				 
+				<!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+				 
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<!--<prop key="hibernate.cache.use_query_cache">true</prop>
+				
+				 -->
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/gialen/model/Psnaccount.hbm.xml</value>
+				<value>com/gialen/model/OrgstdStruct.hbm.xml</value>
+				<value>com/gialen/model/ComplatePercent.hbm.xml</value>
+				<value>com/gialen/model/Cpcjobcode.hbm.xml</value>
+				<value>
+					com/gialen/model/OperatingMonthPlanMoney.hbm.xml
+				</value>
+				<value>com/gialen/model/OperatingMonth.hbm.xml</value>
+				<value>com/gialen/model/Grundbonus.hbm.xml</value>
+				<value>com/gialen/model/ProductBrand.hbm.xml</value>
+				<value>com/gialen/model/SaleDailyYymm.hbm.xml</value>
+				<value>com/gialen/model/Employee.hbm.xml</value>
+				<value>com/gialen/model/District.hbm.xml</value>
+				<value>com/gialen/model/Corresponding.hbm.xml</value>
+				<value>com/gialen/model/ProductClass.hbm.xml</value>
+				<value>com/gialen/model/Product.hbm.xml</value>
+				<value>com/gialen/model/Branch.hbm.xml</value>
+				<value>com/gialen/model/PlanMoney.hbm.xml</value>
+				<value>com/gialen/model/PlanBrand.hbm.xml</value>
+				<value>
+					com/gialen/model/ProProjectRelationTable.hbm.xml
+				</value>
+				<value>com/gialen/model/ProductProject.hbm.xml</value>
+				<value>com/gialen/model/StoreCount.hbm.xml</value>
+				<value>com/gialen/model/PsnaccountMonthProjectDetailsLink.hbm.xml</value>
+		
+				 
+				<value>com/gialen/model/PlanBrandRelationTable.hbm.xml</value>
+				<value>com/gialen/model/SaleDaily.hbm.xml</value>
+				<value>com/gialen/model/SaleDailyTemp.hbm.xml</value>
+				<value>com/gialen/model/SaleDailyMan.hbm.xml</value>
+				<value>com/gialen/model/Store_Count.hbm.xml</value>
+				<value>com/gialen/model/RewardBrand.hbm.xml</value>
+				<value>com/gialen/model/RewardQverQuota.hbm.xml</value>
+				 <value>com/gialen/model/ProProjectRelationTableGroup.hbm.xml</value>  				
+				<value>
+				com/gialen/model/SaleDailyProductPeopleSum.hbm.xml
+			</value>
+			<value>
+				com/gialen/model/SaleDailyProductPeople.hbm.xml
+			</value>
+			<value>com/gialen/model/SaleDailyProduct.hbm.xml</value>
+			<value>
+				com/gialen/model/SaleDailyBrandPeopleSum.hbm.xml
+			</value>
+			<value>com/gialen/model/LastCountTable.hbm.xml</value>	
+			<value>com/gialen/model/CollectUsrWages.hbm.xml</value>
+			</list>
+		</property></bean>
+		
+									<!-- tx -->
+	<bean id="hibTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="hibTransactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="updt*" propagation="REQUIRED" />
+			<tx:method name="invalid*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="SUPPORTS" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="bizMethods" expression="execution(* com.gialen.*.service.*.*(..))" />
+		<!-- 通过advisor合成通知和切点 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="bizMethods" />
+	</aop:config>
+		
+		
+
+	
+	<import resource="applicationContext-act.xml"/>
+	<import resource="applicationContext-service.xml"/>
+	
+	
+	<bean id="PsnaccountDAO" class="com.gialen.dao.PsnaccountDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="OrgstdStructDAO"
+		class="com.gialen.dao.OrgstdStructDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComplatePercentDAO"
+		class="com.gialen.dao.ComplatePercentDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="CpcjobcodeDAO" class="com.gialen.dao.CpcjobcodeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="OperatingMonthPlanMoneyDAO"
+		class="com.gialen.dao.OperatingMonthPlanMoneyDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="OperatingMonthDAO"
+		class="com.gialen.dao.OperatingMonthDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="GrundbonusDAO" class="com.gialen.dao.GrundbonusDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ProductBrandDAO"
+		class="com.gialen.dao.ProductBrandDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="SaleDailyYymmDAO"
+		class="com.gialen.dao.SaleDailyYymmDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="EmployeeDAO" class="com.gialen.dao.EmployeeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="DistrictDAO" class="com.gialen.dao.DistrictDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CorrespondingDAO"
+		class="com.gialen.dao.CorrespondingDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ProductClassDAO"
+		class="com.gialen.dao.ProductClassDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ProductDAO" class="com.gialen.dao.ProductDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="BranchDAO" class="com.gialen.dao.BranchDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="PlanMoneyDAO" class="com.gialen.dao.PlanMoneyDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="PlanBrandDAO" class="com.gialen.dao.PlanBrandDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ProProjectRelationTableDAO"
+		class="com.gialen.dao.ProProjectRelationTableDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ProductProjectDAO"
+		class="com.gialen.dao.ProductProjectDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="StoreCountDAO" class="com.gialen.dao.StoreCountDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="PsnaccountMonthProjectDetailsLinkDAO"
+		class="com.gialen.dao.PsnaccountMonthProjectDetailsLinkDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!--alpha 2012-8-21 单品 品牌方案对比 -->
+	<bean id="PlanBrandRelationTableDAO" class="com.gialen.dao.PlanBrandRelationDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<bean id="SaleDailyProductPeopleSumDAO"
+		class="com.gialen.dao.SaleDailyProductPeopleSumDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="SaleDailyProductPeopleDAO"
+		class="com.gialen.dao.SaleDailyProductPeopleDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="SaleDailyProductDAO"
+		class="com.gialen.dao.SaleDailyProductDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+		<bean id="SaleDailyBrandPeopleSumDAO"
+		class="com.gialen.dao.SaleDailyBrandPeopleSumDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="LastCountTableDAO"
+		class="com.gialen.dao.LastCountTableDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="CollectUsrWagesDAO"
+		class="com.gialen.dao.CollectUsrWagesDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	</beans>

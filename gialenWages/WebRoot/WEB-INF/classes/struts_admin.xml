@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="/admin_OperatingMonth" namespace="/admin_OperatingMonth"
+		extends="struts-default">
+		<action name="admin_OperatingMonth_*" class="operatingMonthAction"
+			method="{1}">
+			<!-- 配置负责上传的Struts2拦截器 ,只对upload方法拦截 -->
+			<interceptor-ref name="fileUpload">
+				<param name="includeMethods">writeMonthSuccess</param>
+				<!-- 单个上传文件的大小为30M -->
+				<param name="maximumSize">31457280</param>
+				<!-- <param name="allowedTypes">application/x-msexcel,application/ms-excel, 
+					application/vnd.ms-excel,application/actet-stream</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="completeStack" />
+			<result name="input">writeMonth.jsp</result>
+			<result name="writeMonth">writeMonth.jsp</result>
+			<result name="showMonth">showMonth.jsp</result>
+			<result name="writeMonthSuccess">writeMonthSuccess.jsp</result>
+		</action>
+	</package>
+
+	<package name="/admin_thisMonthWages" namespace="/admin_thisMonthWages"
+		extends="struts-default">
+		<action name="admin_thisMonthWages_*" class="thisMonthWagesAction"
+			method="{1}">
+			<interceptor-ref name="fileUpload">
+				<param name="includeMethods">showAreaWages</param>
+				<!-- 单个上传文件的大小为30M -->
+				<param name="maximumSize">31457280</param>
+			</interceptor-ref>
+			<interceptor-ref name="completeStack" />
+			<result name="writeMonth">../admin_OperatingMonth/writeMonth.jsp</result>
+			<result name="writeAreaWages">writeAreaWages.jsp</result>
+			<result name="writeAreaWagesSuccess">writeAreaWagesSuccess.jsp</result>
+			<result name="showAreaWages">showAreaWages.jsp</result>
+			<result name="input">input.jsp</result>
+			
+			<result name="writeStoreWages">writeStoreWages.jsp</result>
+			<result name="writeStoreWagesSuccess">writeStoreWagesSuccess.jsp</result>
+			<result name="showStoreWages">showStoreWages.jsp</result>
+			
+		</action>
+
+	</package>
+	
+	<package name="/admin_thisMonthTotalCommission"
+		 namespace="/admin_thisMonthTotalCommission" extends="struts-default" >
+		 <action name="admin_thisMonthTotalCommission_*" class="totalCommissionAction" method="{1}">
+		 	<result name="showStoreCommission">showStoreCommission.jsp</result>
+		 	<result name="writeMonth">../admin_OperatingMonth/writeMonth.jsp</result>
+		 	<result name="writeStoreCommission">writeStoreCommission.jsp</result>
+		 	<result name="writeStoreCommissionSuccess">writeStoreCommissionSuccess.jsp</result>
+		 </action>
+	</package>
+
+	<package name="/admin_synchronizationStores"
+		namespace="/admin_synchronizationStores" extends="struts-default">
+		<action name="admin_synchronizationStores_*" class="synchronizationStoresAction" method="{1}">
+		 	<result name="writeStoreMessage">writeStoreMessage.jsp</result>
+		 	<result name="showOrUpdtCorresponding">showOrUpdtCorresponding.jsp</result>
+		 	<result name="writeStoreMessageSuccess">writeStoreMessageSuccess.jsp</result>
+		 </action>
+	</package>
+
+	<package name="/admin_arrangeBrand" 
+		namespace="/admin_arrangeBrand" extends="struts-default">
+			<action name="admin_arrangeBrand_*" class="addBrandAction" method="{1}">
+				<result name="writeMonth">../admin_OperatingMonth/writeMonth.jsp</result>
+				<result name="addBrand">addBrand.jsp</result>
+				<result name="showProductproject">showProductproject.jsp</result>
+				<result name="addProductProject">addProductProject.jsp</result>
+				<result name="showProProjectRelationTable">showProProjectRelationTable.jsp</result>
+				<result name="updtProProject">updtProProject.jsp</result>
+				<result name="showInvalidProject">showInvalidProject.jsp</result>
+				<result name="showRepeatProProject">showRepeatProProject.jsp</result>
+				
+				
+				
+			<result name="addProduct_Project">../admin_arrangeProduct/addProductProject.jsp
+			</result>
+			<result name="addProduct">../admin_arrangeProduct/showProductproject.jsp
+			</result>
+			<result name="showPlanMoney">../admin_arrangeProduct/showPlanMoney.jsp
+			</result>
+			<result name="showInvalidProProject">../admin_arrangeProduct/showInvalidProject.jsp
+			</result>
+			<!-- <result name="updtProProjects">../admin_arrangeProduct/updtProductProject.jsp</result> -->
+			<result name="updtProProjects">../admin_arrangeProduct/updateProductProject.jsp
+			</result>
+			<result name="showPlanBrand">../admin_arrangeProduct/showPlanBrand.jsp
+			</result>
+	         <result name="show_Money">../admin_arrangeProduct/showPlanMoney.jsp
+			</result>
+			<result name="showProductproject_Group">../admin_arrangeGroup/showProductproject.jsp</result>
+			
+			<result name="addProductProject_Group">../admin_arrangeGroup/addProductProject.jsp</result>
+			</action>
+		</package>
+	
+	<package name="/admin_AccountingArea" 
+		namespace="/admin_AccountingArea" extends="struts-default">
+		<action name="admin_AccountingArea_*" class="accountingAreaAction" method="{1}">
+			<result name="writeMonth">../admin_OperatingMonth/writeMonth.jsp</result>
+			<result name="writeStoreWages">writeStoreWages.jsp</result>
+			<result name="writeStoreCommission">writeStoreCommission.jsp</result>
+			<result name="showStoreCountList">showStoreCountList.jsp</result>
+			<result name="writeAreaWages">../admin_thisMonthWages/writeAreaWages.jsp</result>
+			<result name="showFilmAreastoreCount">showFilmAreastoreCount.jsp</result>
+			<result name="showBigAreastoreCount">showBigAreastoreCount.jsp</result>
+			<result name="countScuccess">countScuccess.jsp</result>
+		</action>
+	</package>
+
+	<package name="/admin_countProductProject" 
+		namespace="/admin_countProductProject" extends="struts-default">
+		<action name="admin_countProductProject_*" class="countProductProjectAction" method="{1}">
+			<result name="writeMonth">../admin_OperatingMonth/writeMonth.jsp</result>
+			<result name="showCountProductProjectsByAreaNew">showCountProductProjectsByAreaNew.jsp</result>
+			
+			
+			<result name="showCountProductProjects">showCountProductProjects.jsp</result>
+			<result name="showCountProductProjectsByAreaSuccess">showCountProductProjectsByAreaSuccess.jsp</result>
+		</action>
+	</package>
+
+
+<package name="/admin_PlanBrandRelation" namespace="/admin_PlanBrandRelation"
+		extends="struts-default">
+		<action name="admin_PlanBrandRelation_*" class="planBrandRelationAction"
+			method="{1}">
+			
+		<!-- <result name="Next" type="redirect">/admin_PlanBrandRelation/admin_PlanBrandRelation!Branch_Product_Collect.action</result>
+		 -->	
+			 
+			 <result name="Next" >../test1.jsp</result>
+
+			
+
+			<result name="branch_product_collect">../test2.jsp</result>
+			<result name="Separate">../test3.jsp</result>
+			<result name="Show_BrandWages">../admin_arrangeProduct/Show_BrandWages.jsp</result>
+			<result name="delete_table">../Execute_Ok.jsp</result>
+			
+			<result name="showQver_Quota">../admin_arrangeProduct/ShowQver_Quota.jsp</result>
+			<result name="insertQver_Quota">../admin_arrangeProduct/InsertQver_Quota.jsp</result>
+		</action>
+
+	</package>
+	
+<package name="/admin_showTable" namespace="/admin_showTable" 
+	extends="struts-default">
+		<action name="admin_showTable_*" class="showAreaWagesTableAction" method="{1}">
+			<result name="writeMonth">../admin_OperatingMonth/writeMonth.jsp</result>
+			<result name="writeAreaWages">../admin_thisMonthWages/writeAreaWages.jsp</result>
+			<result name="showAreaWagesTable">showAreaWagesTable.jsp</result>
+			<result name="down" type="stream">
+				<param name="inputName">downStream</param>
+				<param name="bufferSize">8192</param>
+			</result>
+			<result name="writeStoreWages">../admin_AccountingArea/writeStoreWages.jsp</result>
+			<result name="writeStoreCommission">../admin_AccountingArea/writeStoreCommission.jsp</result>
+			<result name="showStoreWages">showStoreWages.jsp</result>
+			<result name="showUsrWages">showUsrWages.jsp</result>
+			<result name="collectUsrWages">collectUsrWages.jsp</result>
+		</action>
+</package>	
+	
+	<!-- -->
+	<!-- <param name="allowedTypes">application/vnd.ms-excel,application/x-msexcel,application/ms-excel, 
+		image/png,image/gif,image/jpeg,image/pjpeg</param> -->
+	<!-- <param name="contentType">application/vnd.ms-excel</param> -->
+
+
+
+</struts>    

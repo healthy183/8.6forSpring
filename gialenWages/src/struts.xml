@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+		<package name="main" namespace="/main" extends="struts-default"> 
+			<action name="main_*" class="mainAction" method="{1}">
+				<result name="welUsr">../user/wel_User.jsp</result>
+			 	<result name="welAdmin">../admin/wel_Admin.jsp</result>
+				<result name="undefindPerson" type="redirect">../undefindPerson.jsp</result>
+				<result name="index">../index.jsp</result>
+			</action>
+		</package>
+		
+		<include file="struts_admin.xml"></include>
+		 <include file="struts_user.xml"></include>
+</struts>    

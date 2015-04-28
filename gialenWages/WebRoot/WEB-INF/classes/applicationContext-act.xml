@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	                    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	                    
+	                    http://www.springframework.org/schema/tx 
+	                    http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	
+	<bean name="dwrShowError" class="com.gialen.main.action.DwrShowErrorAction" scope="prototype">
+		<property name="dwrSynchronizationStoresService" ref="dwrSynchronizationStoresService"></property>
+	</bean>
+	
+	<bean name="dwrSynchronizationStores" class="com.gialen.synchronizationStores.action.DwrSynchronizationStores" scope="prototype">
+			<property name="dwrSynchronizationStoresService" ref="dwrSynchronizationStoresService"></property>	
+	</bean>
+		
+
+	<bean name="mainAction" class="com.gialen.main.action.MainAction" scope="prototype">
+		<property name="mainService" ref="mainService"></property>
+	</bean>
+
+	<bean name="operatingMonthAction" class="com.gialen.OperatingMonth.action.OperatingMonthAction" scope="prototype">
+		<property name="operatingMonthService" ref="operatingMonthService"/>
+	</bean>
+	
+	<bean name="thisMonthWagesAction" class="com.gialen.thisMonthWages.action.ThisMonthWagesAction" scope="prototype">
+		<property name="thisMonthWagesService" ref="thisMonthWagesService"></property>
+		<property name="operatingMonthService" ref="operatingMonthService"/>
+	</bean>
+	
+	<bean name="totalCommissionAction"
+		 class="com.gialen.thisMonthTotalCommission.action.TotalCommissionAction" scope="prototype">
+		<property name="operatingMonthService" ref="operatingMonthService"/>
+		<property name="totalCommissionService" ref="totalCommissionService"></property>	
+		<property name="thisMonthWagesService" ref="thisMonthWagesService"></property>
+	</bean>
+	
+	<bean name="synchronizationStoresAction" 
+	class="com.gialen.synchronizationStores.action.SynchronizationStoresAction" scope="prototype">
+		<property name="synchronizationStoresSerivce" ref="synchronizationStoresSerivce"></property>
+		<property name="dwrSynchronizationStoresService" ref="dwrSynchronizationStoresService"></property>
+	</bean>
+	
+	<bean name="addBrandAction"
+		class="com.gialen.arrangeBrand.action.AddBrandAction" scope="prototype">
+		<property name="operatingMonthService" ref="operatingMonthService"/>
+		<property name="addBrandService" ref="addBrandService"></property>
+		<property name="dwrAddBrandService" ref="dwrAddBrandService"></property>
+	</bean>
+	
+	<bean name="dwrAddBrand" 
+		class="com.gialen.arrangeBrand.action.DwrAddBrand" scope="prototype">
+			<property name="dwrAddBrandService" ref="dwrAddBrandService"></property>
+	</bean>
+	
+	<bean name="accountingAreaAction"
+		class="com.gialen.accountingArea.action.AccountingAreaAction" scope="prototype">
+			<property name="accountingAreaService" ref="accountingAreaService"></property>
+			<property name="operatingMonthService" ref="operatingMonthService"/>
+			<property name="thisMonthWagesService" ref="thisMonthWagesService"></property>
+			<property name="synchronizationStoresSerivce" ref="synchronizationStoresSerivce"></property>
+	</bean>
+	
+	<bean name="countProductProjectAction" class="com.gialen.countProductProject.action.CountProductProjectAction" scope="prototype">
+		<property name="countProductProjectService" ref="countProductProjectService"></property>
+		<property name="operatingMonthService" ref="operatingMonthService"/>
+		<property name="synchronizationStoresSerivce" ref="synchronizationStoresSerivce"></property>
+	</bean>
+<!-- alpha 2012-8-21 -->
+	<bean name="planBrandRelationAction"
+		class="com.gialen.PlanBrandRelation.action.PlanBrandRelationAction" scope="prototype">
+		<property name="operatingMonthService" ref="operatingMonthService"/>
+		<property name="planBrandRelationService" ref="planBrandRelationService"></property>
+	</bean>
+	
+	<bean name="showAreaWagesTableAction" class="com.gialen.showTable.action.ShowAreaWagesTableAction" scope="prototype">
+		<property name="showAreaWagesTableService" ref="showAreaWagesTableService"></property>
+		<property name="accountingAreaService" ref="accountingAreaService"></property>
+		<property name="operatingMonthService" ref="operatingMonthService"/>
+		<property name="thisMonthWagesService" ref="thisMonthWagesService"></property>
+		<property name="countProductProjectService" ref="countProductProjectService"></property>
+	</bean>
+	
+	<bean name="userShowTableAction" class="com.gialen.userShowTable.action.UserShowTableAction" scope="prototype">
+		<property name="userShowTableService" ref="userShowTableService"></property>
+			<property name="operatingMonthService" ref="operatingMonthService"/>
+			<property name="showAreaWagesTableService" ref="showAreaWagesTableService"></property>
+	</bean>
+	
+	
+	
+</beans>

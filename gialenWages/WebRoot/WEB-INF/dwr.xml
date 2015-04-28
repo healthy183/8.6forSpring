@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 
+2.0//EN" "http://www.getahead.ltd.uk/dwr/dwr2.0.dtd">
+
+<!-- 说明: javascript="checkUser"中的checkUser就是在JSP页面中应用后台文件的别名,
+可以随便取,只要和前台jsp中的相同就可以了 -->
+<!-- 说明: javascript="usrBiz"中的usrBiz就是在JSP页面中应用后台文件的别名,
+可以随便取,只要和前台jsp中的相同就可以了
+<script type='text/javascript' src='/DWR/dwr/interface/usrBiz.js'></script>
+ -->
+ 
+<dwr>
+	 <allow>
+	  
+	 <convert converter="bean" match="java.lang.StackTraceElement" />
+	 <convert converter="bean" match="java.io.File"></convert>
+	 <convert converter="bean" match="java.lang.Object"></convert>
+	 <convert converter="bean" match="java.io.InputStream"></convert>
+	 <convert converter="exception" match="java.lang.Exception"/>
+	 <!-- -->
+	  
+	  <create creator="spring" javascript="dwrShowError">
+	  <param name="location" value="applicationContext.xml"></param>
+	  	 <param name="beanName" value="dwrShowError">
+	   			<include method="showError"></include>
+	   			<include method="getMap"></include>
+	   			<include method="uploadExecl"></include>
+	   			<include method="showAreaError"></include>
+	   			<include method="showStoreError"></include>
+	 			<include method="showMonthError"></include>
+	 			<include method="testUpdate"></include>
+	 			<include method="showStoreCommissionError"></include>
+	 			<include method="showSynchronizationStores"></include>
+	   	</param>	
+	  </create>
+	  
+	  <create creator="spring" javascript="dwrSynchronizationStores">
+	  	<param name="location" value="applicationContext.xml"></param>
+	  	<param name="beanName" value="dwrSynchronizationStores">
+	  		<include method="updtCorresponding"></include>
+	  		<include method="delCorresponding"></include>
+	  		<include method="ishadBrand"></include>
+	  		<include method="ishadOrgstdStruct"></include>
+	  		<include method="addCorresponding"></include>
+	  		<include method="getBrandName"></include>
+	  		<include method="getHRbrandName"></include>
+	  	</param>
+	  </create>
+	  
+	  
+	  <create creator="spring" javascript="dwrAddBrand">
+	  	<param name="location" value="applicationContext.xml"></param>
+	  	<param name="beanName" value="dwrAddBrand">
+	  	</param>
+	  </create>
+	  
+	    <create creator="spring" javascript="planBrandRelationAction">
+	  	<param name="location" value="applicationContext.xml"></param>
+	  	<param name="beanName" value="planBrandRelationAction">
+	  	</param>
+	  </create>  
+	 </allow>
+</dwr>

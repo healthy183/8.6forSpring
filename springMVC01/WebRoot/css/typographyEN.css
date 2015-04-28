@@ -1,0 +1,481 @@
+/* ---------------------------------------------------------- 
+        STANDARD STYLESHEET FOR CR
+		Last Revision: 08/07/2009
+----------------------------------------------------------- *
+/************* Default Settings Begin******************************************/
+
+H1 ,H2 ,H3 ,H4 {
+	DISPLAY: inline; 
+}
+
+/************* Default Settings End******************************************/
+
+
+.contenttext {
+	font-family: "Arial", "Verdana", "Helvetica", "sans-serif", "Ming (for iso10646)";
+	font-size: 13px;
+	color: 000000;
+}
+
+
+
+
+
+.progressWrapper {
+	width: 357px;
+	overflow: hidden;
+}
+
+.progressContainer {
+	margin: 5px;
+	padding: 4px;
+	border: solid 1px #E8E8E8;
+	background-color: #F7F7F7;
+	overflow: hidden;
+}
+
+.progressName {
+	font-size: 8pt;
+	font-weight: 700;
+	color: #555;
+	width: 323px;
+	height: 14px;
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.progressBarInProgress,
+.progressBarComplete,
+.progressBarError {
+	font-size: 0;
+	width: 0%;
+	height: 2px;
+	background-color: blue;
+	margin-top: 2px;
+}
+
+.progressBarComplete {
+	width: 100%;
+	background-color: green;
+	visibility: hidden;
+}
+
+.progressBarError {
+	width: 100%;
+	background-color: red;
+	visibility: hidden;
+}
+
+.progressBarStatus {
+	margin-top: 2px;
+	width: 337px;
+	font-size: 7pt;
+	font-family: "Arial", "Verdana", "Helvetica", "sans-serif", "Ming (for iso10646)";
+	text-align: left;
+	white-space: nowrap;
+}
+/*----------------------Input Style------------------------------------*/
+.text{
+    font-family: "Arial", "Verdana", "Helvetica", "sans-serif", "Ming (for iso10646)";
+	font-size: 12px;
+	color: 000000;
+}
+
+
+/* -- SWFUpload Object Styles ------------------------------- */
+.swfupload {
+	vertical-align: top;
+}
+
+.uploadBar {
+	display:block;
+	width: 0px;
+	height: 5px;
+	border: solid 1px #445566;
+	background-color: blue;
+	overflow:hidden;
+}
+
+/*  -------dialogBox--------*/
+
+.dialogBox{
+	display: none;
+	width:600px;
+	height:400px;
+}
+
+/*  -------buttonPanel--------*/
+
+.centerDIV{
+	width: 1594px;
+}
+
+.centerEnquiryDIV{
+	width: 100%;
+}
+
+
+.item{
+	color:red;
+}
+
+
+/*for GI common  */
+.radioTable TD{
+	width: 50%;
+}
+.radioTable{
+	width: 100%;
+}
+.filedName200{
+	width: 10px;
+	float: left;
+}
+.radiobutton{
+width: 145px;
+display: inline-block;
+}
+.clear{
+	clear: both;
+}
+
+
+.oneCol input[type=text]{
+width: 1298px;
+width: 1268px;
+}
+
+.radiobutton{
+width: 145px;
+display: inline-block;
+}
+
+.comEnquiryNoteOne{
+
+ 
+}
+
+.comEnquiryNoteOne select{
+width: 1000px;
+}
+
+
+.comEnquiryNoteOne input[type=text]{
+width: 990px;
+}
+
+.comEnquiryNoteOne h3{
+display: block;
+width: 304px;
+float: left;
+padding-top: 5px;
+}
+
+.comEnquiryNoteTwoL {
+	width:890px;
+	float:left;
+}
+
+.comEnquiryNoteTwoL select{
+	width:490px;
+	float: left;
+}
+
+.comEnquiryNoteTwoL h3{
+display: block;
+width: 304px;
+float: left;
+padding-top: 5px;
+}
+
+
+.comEnquiryNoteTwoR {
+	width: 500px;
+	float: left;
+}
+
+.comEnquiryNoteTwoR select{
+	width: 280px;
+}
+
+.comEnquiryNoteTwoR h4{
+	width: 150px;
+}
+
+.comEnquiryNoteTwoR h3{
+display: block;
+width: 304px;
+float: left;
+padding-top: 5px;
+}
+
+.tavEnquiryNoteOne{
+
+ 
+}
+
+.tavEnquiryNoteOne select{
+width: 950px;
+}
+
+
+.tavEnquiryNoteOne input[type=text]{
+width: 940px;
+}
+
+.tavEnquiryNoteOne h3{
+display: block;
+width: 304px;
+float: left;
+padding-top: 5px;
+}
+
+.tavEnquiryNoteTwoL {
+	width:885px;
+	float:left;
+}
+
+.tavEnquiryNoteTwoL select{
+	width:400px;
+	float: left;
+}
+
+.tavEnquiryNoteTwoL h3{
+display: block;
+width: 304px;
+float: left;
+padding-top: 5px;
+}
+
+
+.tavEnquiryNoteTwoR {
+	width: 500px;
+	float: left;
+}
+
+.tavEnquiryNoteTwoR select{
+	width: 220px;
+}
+
+.tavEnquiryNoteTwoR h4{
+	width: 150px;
+}
+
+.tavEnquiryNoteTwoR h3{
+display: block;
+width: 304px;
+float: left;
+padding-top: 5px;
+}
+
+.residentialAddressL {
+	width: 1000px;
+	float: left;
+}
+
+.residentialAddressL select{
+	width: 600px;
+}
+
+.residentialAddressR {
+	width: 500px;
+	float: left;
+}
+
+.residentialAddressR select{
+	width:320px;
+}
+
+.residentialAddressR h4{
+	width:150px;
+}
+
+
+/**
+ *  new style defined
+ */
+.bleft{
+	float: left;
+}
+
+.bright{
+	float: right;
+}
+
+
+/* -------------- form field and container  --------------*/
+.fieldset {
+
+}
+
+.field {
+	width:"100%";
+}
+.fieldset .fieldlabel,.field .fieldlabel {
+	width:240px;
+	float: left; 
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.fieldcontainer{
+	float: left; 
+
+}
+
+.field.fieldcontainer{
+	float: left; 
+}
+
+.field .text {
+}
+
+.field .hkid {
+
+}
+
+
+
+/* ------------------ col handle definde ---------------------*/
+
+.oneCol{
+	width: 1550px;
+ 
+}
+
+.oneCol h3{
+	width:240px;
+}
+
+.oneCol textarea{
+	width: 99%;
+
+}
+
+.oneCol select{
+
+}
+
+.oneCol input[type=text]{
+
+}
+
+
+.twoColL{
+	width:570px;
+}
+
+
+
+.twoColL h3{
+	width:240px;
+}
+
+.twoColL input[type=text]{
+	width: '100%';
+}
+
+
+.twoColR{
+	width:570px;
+	
+}
+
+.twoColR h3{
+	width:240px;
+}
+
+.twoColL select{
+width: 290px;
+}
+
+
+
+.twoColR select{
+width: 280px;
+}
+
+.twoColR input[type=text]{
+width: 280px;
+}
+
+.twoLongCol{
+	width:950px;
+	float: left;
+	
+}
+
+.twoLongCol input[type=text]{
+	width:700px;
+	width:670px; 
+}
+
+.twoLongCol select{
+	width:710px;
+	width:680px; 
+}
+
+
+.twofieldset .oneCol select{
+width: 1308px;
+width: 1248px;
+}
+
+.twofieldset .oneCol input[type=text]{
+width: 1298px;
+width: 1238px;
+}
+
+
+.threeColL{
+	width:570px;
+}
+
+.threeColL h3{
+	width:250px;
+	
+}
+
+
+.threeColC{
+	width:500px;
+	/*margin-left:5px;*/
+}
+.threeColC select{
+	width:330px;
+	width:300px;
+}
+
+.threeColC input[type=text]{
+	width:320px;
+	width:290px;
+}
+
+.threeColR{
+	width:500px;
+}
+
+.threeColR h3{
+	width:230px;
+	float: right;
+	
+}
+
+.threeColR select{
+	width:150px;
+	width:120px;
+}
+
+
+.threeColL select{
+width: 330px;
+width: 300px;
+}
+.threeColL input[type=text]{
+width: 320px;
+width: 290px;
+}
+
+
+
